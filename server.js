@@ -9,6 +9,11 @@ const bodyParser = require('body-parser')
 // routes
 const PORT = process.env.PORT || 3000
 
+// db stuff
+
+// use jade
+app.set('view engine', 'jade')
+
 // use bodyParser
 app.use(bodyParser.urlencoded({
   extended: false
@@ -18,8 +23,13 @@ app.use(express.static('public'))
 
 // default route
 app.get('/', (req, res) => {
-  res.send('hello')
+  res.render('index')
 })
+
+// post routes
+
+
+// connect database before listening
 
 app.listen(PORT, ()=> {
   console.log(`App listening on Port ${PORT}`)
